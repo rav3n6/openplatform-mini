@@ -7,8 +7,6 @@ import { getAllUsers } from '.././services/AssocService'
 
 export function DataDisplay() {
 
-  const [count, setCount] = useState(0);
-  const [data1 , setData1] = useState([]);
   const [data , setData] = useState([]);
 
  function getAllUser() {
@@ -30,28 +28,32 @@ export function DataDisplay() {
 
 const Styles = styled.div`
         padding: 1rem;
+        .tableHead {
+   
+        }
         table {
-          border-spacing: 0;
+          border-spacing: ;
           border: 1px solid black;
+          th {
+            font-size: 0.875rem;
+            font-family: sans-serif;
+            font-weight: 1500;
+            line-height: 1.57;
+            color: gray;
+          }
 
           tr {
-            :last-child {
-              td {
-                border-bottom: 0;
-              }
+            border: 1px solid black;
             }
           }
 
-          th,
           td {
             margin: 0;
             padding: 0.5rem;
-            border-bottom: 1px solid black;
-            border-right: 1px solid black;
-
-            :last-child {
-              border-right: 0;
-            }
+            font-size: 0.875rem;
+            font-family: "Inter", sans-serif;
+            font-weight: 400;
+            line-height: 1.43;
           }
         }
       `;
@@ -89,7 +91,7 @@ const Styles = styled.div`
   return (
     <div>
     <Styles>
-    <h3>Genes associated with lung carcinoma</h3>
+    <h3 className ="tableHead">Genes associated with lung carcinoma</h3>
       <Table
         columns={columns}
         data={data}

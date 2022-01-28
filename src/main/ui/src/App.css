@@ -2,11 +2,13 @@
 .header {
   width: 100%;
   padding: 2%;
-  background-color: burlywood;
+  background-color: #3489ca;
   color: white;
   text-align: center;
 }
 
 .mrgnbtm {
   margin-top: 20px;
+  border-color: rgb(97, 97, 97);
+  border: 2px;
 }

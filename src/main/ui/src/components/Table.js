@@ -1,6 +1,7 @@
 import { useExpanded, useTable } from 'react-table';
-import {Bar, getDatasetAtEvent} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 import React  from 'react';
+import BTable from 'react-bootstrap/Table';
 
 export function Table({ columns: userColumns, data }) {
 
@@ -11,7 +12,6 @@ export function Table({ columns: userColumns, data }) {
       rows,
       prepareRow,
       visibleColumns,
-      state: { expanded },
     } = useTable(
       {
         columns: userColumns,
@@ -40,7 +40,7 @@ export function Table({ columns: userColumns, data }) {
   
     return (
       <>
-        <table {...getTableProps()}>
+        <BTable striped bordered hover size="sm" {...getTableProps()}>
           <thead>
             {headerGroups.map(headerGroup => (
               <tr {...headerGroup.getHeaderGroupProps()}>
@@ -53,8 +53,9 @@ export function Table({ columns: userColumns, data }) {
           <tbody {...getTableBodyProps()}>
             {rows.map((row, i) => {
               prepareRow(row)
+              const rowProps = row.getRowProps();
               return (
-                <React.Fragment {...row.getRowProps()}>
+                <React.Fragment  key={rowProps.key}>
                   <tr>
                     {row.cells.map(cell => {
                       return (
@@ -65,18 +66,19 @@ export function Table({ columns: userColumns, data }) {
                   {row.isExpanded ? (
                     <tr>
                       <td colSpan={visibleColumns.length}>
-
                       <Bar
                           data={getDataset(row)}
                           options={{
                             title:{
                               display:true,
                               text:'Average Rainfall per month',
-                              fontSize:1
+                              fontSize:2
                             },
+                           // maintainAspectRatio: false,
                             legend:{
                               display:true,
-                              position:'right'
+                              position:'right',
+                              fontSize:2
                             }
                           }}
                         />
@@ -87,9 +89,9 @@ export function Table({ columns: userColumns, data }) {
               )
             })}
           </tbody>
-        </table>
+        </BTable>
         <br />
-        <div>Showing the first 5 results of {rows.length} rows</div>
+
       </>
     )
   }
