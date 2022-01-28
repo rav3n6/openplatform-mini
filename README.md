@@ -5,6 +5,7 @@ To Build and run :
 
 Make sure you have latest version of following installed : 
 
+JDK : 1.8+
 Maven : https://maven.apache.org/
 Node : https://nodejs.org/en/
 npm : https://www.npmjs.com/
