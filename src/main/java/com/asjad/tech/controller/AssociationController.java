@@ -21,7 +21,7 @@ public class AssociationController {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(AssociationController.class);
 
-	@GetMapping(path = "getAll")
+	@GetMapping(path = "/getAll")
     public ResponseEntity<?> getAllAssoc() {
         LOGGER.info("getting all associations");
         AssociationModel resource = associationService.getAll();

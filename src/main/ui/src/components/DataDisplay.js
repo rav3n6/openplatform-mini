@@ -3,7 +3,7 @@ import Chart from 'chart.js/auto'
 import styled from 'styled-components';
 import {CategoryScale} from 'chart.js';
 import { Table } from './Table';
-import { getAllUsers } from '.././services/UserService'
+import { getAllUsers } from '.././services/AssocService'
 
 export function DataDisplay() {
 
